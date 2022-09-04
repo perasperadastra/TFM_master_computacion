@@ -57,9 +57,22 @@ In the *VASP_utils* directory we will find different scripts to use with VASP ca
   - This script is used on vibrational analysis VASP simulation to obtain the frequencies in meV. It will print on hte terminal those values.
 - block_lattice.py:
   - Blocks all atoms except the ones that are below from a certain line (must be added by hand inside the script in the latt parameter). Block the atom means that in the POSCAR file those atoms have the special parameter **T    T    T**.
--unblock_lattice.py:
+- unblock_lattice.py:
   - remove the block conditions applied on the POSCAR.
--check_position.py:
-  -This python script trys to reorder the POSCAR file to make easier the visualization. What its done is to read the POSCAR file and the using periodic boundary conditions and a toleranc value, atoms are reordered.
+- check_position.py:
+  - This python script trys to reorder the POSCAR file to make easier the visualization. What its done is to read the POSCAR file and the using periodic boundary conditions and a toleranc value, atoms are reordered.
   - A tolerance value must be added by hand (default=0.9) inside the script. More information about this parameter is avalible in the code of this script.
 
+#### NEB directory
+Inside this directory can be find three scripts.
+- VASP_diff.py:
+  - use the ase package NEB process to build images between an initial and final state remeber that those states should have the following names:
+ ```
+      initial.POSCAR
+      final.POSCAR 
+```
+    - it will build a directory with each image of the NEB process.
+- images.py:
+  - Using the enviroment of directory build with the above script, it can build a image displaying where you can move between each step of the NEB process, onces the simulation has end (reads CONTCAR files). It uses the ase package to display the path.
+- obtain_diff_E:
+  - To obtain the energies of each step of the neb process, you can use this script that prints on terminal the last energie of the minimization of each image.
