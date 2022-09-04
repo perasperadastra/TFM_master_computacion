@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+# This script read a OUTCAR file from the VASP software, and return the values
+#	of all the frequencies calculated in meV.
+File="OUTCAR"
+if test -f "$File"; then
+	echo "  meV"
+	freq="$(grep Hz $File |sed 's/^.*cm-1//' | sed 's/meV.*//')"
+	echo "$freq"	
+else
+	echo "No OSZICAR in this directory"
+fi
+
+

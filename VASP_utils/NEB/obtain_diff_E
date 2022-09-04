@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+# This script read a OSZICAR file from the VASP software, and return the values
+#	the energie at each step of the NEB process.
+for i in ./0*
+do
+    if [ -d "$i" ] # if it's a directory
+    then
+        cd "$i"
+        energy="$(grep E0 OSZICAR | tail -1 | sed 's/^.* E0= //' | sed 's/d.*//') "
+        cd ../
+        echo "$energy" 
+    fi
+done
