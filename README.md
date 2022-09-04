@@ -66,12 +66,11 @@ In the *VASP_utils* directory we will find different scripts to use with VASP ca
 #### NEB directory
 Inside this directory can be find three scripts.
 - VASP_diff.py:
-  - use the ase package NEB process to build images between an initial and final state remeber that those states should have the following names:
- ```
+  - It build a directory with each image of the NEB process. Use the ase package NEB process to build images between an initial and final state remeber that those states should have the following names:
+```
       initial.POSCAR
       final.POSCAR 
 ```
-    - it will build a directory with each image of the NEB process.
 - images.py:
   - Using the enviroment of directory build with the above script, it can build a image displaying where you can move between each step of the NEB process, onces the simulation has end (reads CONTCAR files). It uses the ase package to display the path.
 - obtain_diff_E:
