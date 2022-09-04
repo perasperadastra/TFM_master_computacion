@@ -40,4 +40,26 @@ In the Tools box there are:
 - multi_builder/creator.sh:
   As commented before this is a super-script to build several simulation in different thermodynamic conditions. Also, it build a **runner.sh** file (that gives the possibility of send to the queque all this simulation at once) and the **results.sh** ( that obtain information from all this simulations, and the save them in a results.xlsx file). To use this script you need to adapt your **simulation_builder.py** and **data_obtainer_serie.py** file for your desired data and simulations.
   
+## VASP enviroment:
+In the *VASP_utils* directory we will find different scripts to use with VASP calculations.
+- VASP_TFM_foto.py:
+  - This scripts read a POSCAR or CONTCAR file, and produces and **.xyz** file and a png.
+```
+./VASP_TFM_foto.py POSCAR
+```
+- tfm_vas_poscar_visualizer.py:
+  - This script open a POSCAR and visualize it. Its recommended to use a bash alias as POSCAR
+
+- tfm_vas_contcar_visualizer.py:
+  - This script open a CONTCAR and visualize it. Its recommended to use a bash alias as CONTCAR
+ 
+- obtain_frec:
+  - This script is used on vibrational analysis VASP simulation to obtain the frequencies in meV. It will print on hte terminal those values.
+- block_lattice.py:
+  - Blocks all atoms except the ones that are below from a certain line (must be added by hand inside the script in the latt parameter). Block the atom means that in the POSCAR file those atoms have the special parameter **T    T    T**.
+-unblock_lattice.py:
+  - remove the block conditions applied on the POSCAR.
+-check_position.py:
+  -This python script trys to reorder the POSCAR file to make easier the visualization. What its done is to read the POSCAR file and the using periodic boundary conditions and a toleranc value, atoms are reordered.
+  - A tolerance value must be added by hand (default=0.9) inside the script. More information about this parameter is avalible in the code of this script.
 
